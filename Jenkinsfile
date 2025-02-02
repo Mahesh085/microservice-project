@@ -4,14 +4,14 @@ pipeline {
     stages {
         stage('Docker build') {
             steps {
-                "sh docker build -t umamahesh085/adservice:v1 ."
+                sh "docker build -t umamahesh085/adservice:v1 ."
             }
         }
         stage('Docker push') {
             steps {
                 script{
                     withDockerRegistry(credentialsId: 'Docker-CRED') {
-                       "sh docker push umamahesh085/adservice:latest" 
+                       sh "docker push umamahesh085/adservice:latest" 
                     }
                 }
             }
